@@ -1,16 +1,379 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-    /* Eirik */
-    .text {
+
+
+  <!DOCTYPE html>
+  <html lang="en"></html>
+
+  <head>
+        
+  <style>
+
+    #lyd{
+      position:absolute;
+      top:400px;
+    }
+    #main {
+    width: 98vw;
+    height: 98vh;
+  }
+
+  #himmel { 
+    position: relative;
+    height: 60%;
+    background-color:rgb(104, 104, 241);
+  }
+
+  #kaktus{
+    position: absolute;
+    width: 90px;
+    height: 68px;
+    background-image: url(cactus.png);
+  }
+
+  #jord { 
+    position: relative;
+    height: 50%;
+    background-color: rgb(207, 153, 90);
+  }
+  #Jon{
+    position: absolute;
+    left: 40px;
+    top: 10px;
+    width: 112px;
+    height: 112px;
+    opacity: 1;
+    background-image: url(puppetjon.png);
+    background-position-x: 0;
+    background-position-y: calc(-112px*2);
+    animation:  walk 1s infinite steps(8), moveJon 8s linear 1 forwards, gone 1ms linear 8s 1 forwards;
+  }
+  #Jon2{
+    position: absolute;
+    left: 700px;
+    top: 10px;
+    width: 112px;
+    height: 112px;
+    opacity: 0;
+    background-image: url(puppetjon.png);
+    background-position-x: 0;
+    background-position-y: calc(-112px*0);
+    animation: walk-forward 1s infinite steps(8), move-forwardJon 5s 8s forwards, appear 1ms linear 8s 1 forwards;
+  }
+
+  #Mats{
+    position: absolute;
+    left: 40px;
+    top: 50px;
+    width: 112px;
+    height: 112px;
+    opacity: 1;
+    background-image: url(puppetmats.png);
+    background-position-x: 0;
+    background-position-y: calc(-112px*2);
+    animation:  walk 1s infinite steps(8), moveMats 5s linear 1 forwards, gone 1ms linear 8s 1 forwards;
+  }
+  #Mats2{
+    position: absolute;
+    left: 600px;
+    top: 50px;
+    width: 112px;
+    height: 112px;
+    opacity: 0;
+    background-image: url(puppetmats.png);
+    background-position-x: 0;
+    background-position-y: calc(-112px*0);
+    animation: walk-forward 1s infinite steps(8), move-forwardMats 5s 8s forwards, appear 1ms linear 8s 1 forwards;
+  }
+
+  #Mads{
+    position: absolute;
+    left: 40px;
+    top: 100px;
+    width: 112px;
+    height: 112px;
+    opacity: 1;
+    background-image: url(puppetmads.png);
+    background-position-x: 0;
+    background-position-y: calc(-112px*2);
+    animation:  walk 1s infinite steps(8), move 7s linear 1 forwards, gone 1ms linear 8s 1 forwards;
+  }
+  #Mads2{
+    position: absolute;
+    left: 800px;
+    top: 50px;
+    width: 112px;
+    height: 112px;
+    opacity: 0;
+    background-image: url(puppetmads.png);
+    background-position-x: 0;
+    background-position-y: calc(-112px*0);
+    animation: walk-forward 1s infinite steps(8), move-forward 5s 8s forwards, appear 1ms linear 8s 1 forwards;
+  }
+
+  #Erik{
+    position: absolute;
+    right: 40px;
+    top: 10px;
+    width: 112px;
+    height: 112px;
+    transform: scaleX(-1);
+    opacity: 1;
+    background-image: url(puppeterik.png);
+    background-position-x: 0;
+    background-position-y: calc(-112px*2);
+    animation:  walk 1s infinite steps(8), moveErik 8s linear 1 forwards, gone 1ms linear 8s 1 forwards;
+  }
+  #Erik2{
+    position: absolute;
+    right: 700px;
+    top: 10px;
+    width: 112px;
+    height: 112px;
+    opacity: 0;
+    background-image: url(puppeterik.png);
+    background-position-x: 0;
+    background-position-y: calc(-112px*0);
+    animation: walk-forward 1s infinite steps(8), move-forwardJon 5s 8s forwards, appear 1ms linear 8s 1 forwards;
+  }
+
+  #Eirik{
+    position: absolute;
+    right: 40px;
+    top: 50px;
+    width: 112px;
+    height: 112px;
+    transform: scaleX(-1);
+    opacity: 1;
+    background-image: url(puppeteirik.png);
+    background-position-x: 0;
+    background-position-y: calc(-112px*2);
+    animation:  walk 1s infinite steps(8), moveEirik 5s linear 1 forwards, gone 1ms linear 8s 1 forwards;
+  }
+  #Eirik2{
+    position: absolute;
+    right: 600px;
+    top: 50px;
+    width: 112px;
+    height: 112px;
+    opacity: 0;
+    background-image: url(puppeteirik.png);
+    background-position-x: 0;
+    background-position-y: calc(-112px*0);
+    animation: walk-forward 1s infinite steps(8), move-forwardMats 5s 8s forwards, appear 1ms linear 8s 1 forwards;
+  }
+
+  #Jonas{
+    position: absolute;
+    right: 40px;
+    top: 100px;
+    width: 112px;
+    height: 112px;
+    opacity: 1;
+    background-image: url(puppetjonas.png);
+    transform: scaleX(-1);
+    background-position-x: 0;
+    background-position-y: calc(-112px*2);
+    animation:  walk 1s infinite steps(8), moveJonas 7s linear 1 forwards, gone 1ms linear 8s 1 forwards;
+  }
+  #Jonas2{
+    position: absolute;
+    right: 800px;
+    top: 50px;
+    width: 112px;
+    height: 112px;
+    opacity: 0;
+    background-image: url(puppetjonas.png);
+    background-position-x: 0;
+    background-position-y: calc(-112px*0);
+    animation: walk-forward 1s infinite steps(8), move-forward 5s 8s forwards, appear 1ms linear 8s 1 forwards;
+  }
+  
+  
+  
+@keyframes appear {
+  100%{
+    opacity: 1;
+  }
+}
+
+  @keyframes walk{
+    100%{
+      background-position-x: calc(-112px*8);
+    }
+  }
+
+  @keyframes gone {
+
+    100%{opacity: 0;
+    }
+}
+
+  @keyframes walk-forward{
+    100%{
+      background-position-x: calc(-112px*8);
+ 
+    }
+  }
+  @keyframes move {
+    0%{ left:30px;
+
+    } 100%{
+      left: 800px;
+    }
+  }
+ 
+  @keyframes move-forward {
+    0%{
+      top: 30px;
+      transform: scale(1);
+    }
+    100%{
+      top:200px;
+      transform: scale(1.7);
+    }
+  }
+  @keyframes moveJonas {
+    0%{ right:30px;
+
+    } 100%{
+      right: 700px;
+    }
+  }
+
+  
+
+  @keyframes moveJon {
+    0%{ left:30px;
+
+    } 100%{
+      left: 700px;
+    }
+  }
+  @keyframes moveErik {
+    0%{ right:30px;
+
+    } 100%{
+      right: 700px;
+    }
+  }
+
+  @keyframes move-forwardJon {
+    0%{
+      top: 10px;
+      transform: scale(1);
+    }
+    100%{
+      top:200px;
+      transform: scale(1.7);
+    }
+  }
+  @keyframes moveMats {
+    0%{ left:30px;
+
+    } 100%{
+      left: 600px;
+    }
+  }
+  @keyframes moveEirik {
+    0%{ right:30px;
+
+    } 100%{
+      right: 600px;
+    }
+  }
+
+  @keyframes move-forwardMats {
+    0%{
+      top: 50px;
+      transform: scale(1);
+    }
+    100%{
+      top:200px;
+      transform: scale(1.7);
+    }
+  }
+  @keyframes moveJon {
+    0%{ left:30px;
+
+    } 100%{
+      left: 700px;
+    }
+  }
+
+  @keyframes move-forwardJon {
+    0%{
+      top: 10px;
+      transform: scale(1);
+    }
+    100%{
+      top:200px;
+      transform: scale(1.7);
+    }
+  }
+
+
+  #sol {
+      position: absolute;    
+      top: calc(50% - 20px);
+      left: calc(50% - 20px);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: yellow;
+      animation: pulse 1s infinite linear alternate;
+  } 
+  @keyframes pulse {
+   100% {
+     transform: scale(1.87);
+   } 
+    
+  }
+  /* yonas */
+  
+#eksplosjon{
+    z-index: 100;
+    opacity: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    width: 100px;
+    height: 95px;
+    background-image: url(eksplosjon.png);
+    background-position-x: 0;
+    background-position-y: 0;
+    animation: explosionFadeIn 1s 14s forwards, explodeX 1s 14s 8 steps(9), explodeY 8s 14s steps(8), explodeScale 8s 14s, explosionFade 1s 21s forwards;
+  }
+@keyframes explosionFadeIn{
+  100%{
+    opacity: 1;
+  }
+}
+@keyframes explosionFade
+{
+  100%{
+    opacity: 0;
+  }
+}
+@keyframes explodeScale{
+  100%{
+    transform: scale(50);
+  }
+}
+@keyframes explodeX{
+  100%{
+      background-position-x: calc(-100px*9);
+    }
+}
+@keyframes explodeY{
+  100%{
+    background-position-y: calc(-100px*8)
+  }
+}
+
+/* Eirik */
+.text {
     
     position: absolute;
-    left: 12%;
+    left: 25%;
     top: 10%;
     transform-origin: center;
     text-transform: uppercase;
@@ -36,7 +399,7 @@
 
     animation: color 0.2s linear infinite,
     enter 1s ;
-    animation-delay: 1s;
+    animation-delay: 14s;
     animation-fill-mode: forwards;
     
     
@@ -61,12 +424,15 @@
             top: 0;
             left: 0;
             animation: bulge 0.5s;
+            animation-delay: 22s;
+            animation-fill-mode: forwards;
+            transform: scale(0);
         }
         .buttonContainer{
-            width: 1000px;
-            height: 800px;
+            width: 100vw;
+            height: 100vh;
             position: relative;
-            border: 2px solid black;
+            
         }
         button{
             border: none;
@@ -96,10 +462,40 @@
             85% {transform: scale(105%)}
             100% {transform: scale(100%)}
         }
-    </style>
+
+</style>
+
 </head>
+
 <body>
-    <span class="text">Animasjonsgruppa</span>
+  <div id="eksplosjon"></div>
+    <div id="main">
+    <div id="himmel">     
+      <div id="sol"></div>
+    </div>
+    <div id="jord">
+      <div id="kaktus"></div>  
+      <div id="Jon"></div>
+      <div id="Jon2"></div>
+      <div id="Mats"></div>
+      <div id="Mats2"></div>
+      <div id="Mads"></div>
+      <div id="Mads2"></div>
+      <div id="Jonas"></div>
+      <div id="Jonas2"></div>
+      <div id="Erik"></div>
+      <div id="Erik2"></div>
+      <div id="Eirik"></div>
+      <div id="Eirik2"></div>
+      <div id="lyd">
+        <audio controls autoplay>
+          <source src="Theme1.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
+  </div>
+
+  <span class="text">Animasjonsgruppa</span>
     <div class="container">
         <div id="buttonContainer" class="buttonContainer">
             <div id="button" class="buttonBackdrop">
@@ -107,41 +503,42 @@
             </div>
         </div>
     </div>
-</body>
 
-<script>
-    const getRandomInt = (min, max) => {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-      };
-
-    const sleep = (milliseconds) => {
-        const date = Date.now();
-        let currentDate = null;
-        do {
-          currentDate = Date.now();
-        } while (currentDate - date < milliseconds);
-      }
-
-    const button = document.getElementById('button')
-    const container = document.getElementById('buttonContainer')
-
-    onmousemove = (e) => {
-        if(button){
-            const withinBoundaries = e.composedPath().includes(button)
-            if (withinBoundaries) {
-                moveButton(e.clientX, e.clientY)
-                sleep(20)
-            }
+    <script>
+      const getRandomInt = (min, max) => {
+          min = Math.ceil(min);
+          max = Math.floor(max);
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+        };
+  
+      const sleep = (milliseconds) => {
+          const date = Date.now();
+          let currentDate = null;
+          do {
+            currentDate = Date.now();
+          } while (currentDate - date < milliseconds);
         }
-    }
-
-    const moveButton = (x,y) => {
-        button.style.left = `${getRandomInt(0,container.clientWidth-button.clientWidth)}px`
-        button.style.top = `${getRandomInt(0,container.clientHeight-button.clientHeight)}px`
-    }
-
-</script>
+  
+      const button = document.getElementById('button')
+      const container = document.getElementById('buttonContainer')
+  
+      onmousemove = (e) => {
+          if(button){
+              const withinBoundaries = e.composedPath().includes(button)
+              if (withinBoundaries) {
+                  moveButton(e.clientX, e.clientY)
+                  sleep(20)
+              }
+          }
+      }
+  
+      const moveButton = (x,y) => {
+          button.style.left = `${getRandomInt(0,container.clientWidth-button.clientWidth)}px`
+          button.style.top = `${getRandomInt(0,container.clientHeight-button.clientHeight)}px`
+      }
+  
+  </script>
 </body>
+
+
 </html>
