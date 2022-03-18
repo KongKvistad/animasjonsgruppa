@@ -1,0 +1,89 @@
+<html>
+    <body>
+        <div class="container">
+            <div id="buttonContainer" class="buttonContainer">
+                <div id="button" class="buttonBackdrop">
+                    <button onclick="clicker()" class="myButton">JOIN TODAY!</button>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        const getRandomInt = (min, max) => {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+          };
+
+        const sleep = (milliseconds) => {
+            const date = Date.now();
+            let currentDate = null;
+            do {
+              currentDate = Date.now();
+            } while (currentDate - date < milliseconds);
+          }
+
+        const button = document.getElementById('button')
+        const container = document.getElementById('buttonContainer')
+
+        onmousemove = (e) => {
+            if(button){
+                const withinBoundaries = e.composedPath().includes(button)
+                if (withinBoundaries) {
+                    moveButton(e.clientX, e.clientY)
+                    sleep(20)
+                }
+            }
+        }
+
+        const moveButton = (x,y) => {
+            button.style.left = `${getRandomInt(0,container.clientWidth-button.clientWidth)}px`
+            button.style.top = `${getRandomInt(0,container.clientHeight-button.clientHeight)}px`
+        }
+
+    </script>
+    <style>
+        .container{
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: bulge 0.5s;
+        }
+        .buttonContainer{
+            width: 1000px;
+            height: 800px;
+            position: relative;
+            border: 2px solid black;
+        }
+        button{
+            border: none;
+            background: none;
+        }
+
+        .buttonBackdrop{
+            padding: 30px;
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            transition: top 0.3s ease, left 0.3s ease;
+        }
+        .myButton{
+            height: 45px;
+            padding: 0 20px;
+            background-color: #AED9C0;
+            border: 2px solid #59856b;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        @keyframes bulge {
+            0% {transform: scale(0)}
+            50% {transform: scale(120%)}
+            70% {transform: scale(97%)}
+            85% {transform: scale(105%)}
+            100% {transform: scale(100%)}
+        }
+    </style>
+</html>
+
